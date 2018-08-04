@@ -1,0 +1,121 @@
+
+.PlayerInputList {
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.PlayerInputList ul {
+    list-style: none;
+    margin-left: -42px;
+}
+
+.PlayerInputList ul .input-field-group {
+    display: flex;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.PlayerInputList ul .input-field-group .icon-field {
+    /* background: #43A047; */
+    padding: 16px;
+    margin-right: -58px;
+    margin-left: 16px;
+    vertical-align: middle;
+    border: none;
+    border: 0px solid #eeeeee00;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    /* border-radius: 8px; */
+    /* border-right: 1px solid #999; */
+    z-index: 1;
+    user-select: none;
+}
+
+.PlayerInputList ul .input-field-group .text-field {
+    width: 100%;
+    padding: 16px;
+    margin-right: 16px;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    text-indent: 64px;
+    border: none; /* border: 2px solid #eee; */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-radius: 8px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.251);
+    background: #ffffff40;
+}
+
+.PlayerInputList ul .input-field-group .text-field::placeholder {
+    font-weight: 100;
+    font-style: italic;
+    color: #eee;
+}
+
+.PlayerInputList-btn-group .number-badge {
+    margin: 8px;
+    width: 40px;
+    text-align: center;
+    text-indent: 0;
+    background: #43A047;
+    min-height: 40px;
+    min-width: 40px;
+    color: #fff;
+    font-size: 22px;
+    padding: 8px;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    user-select: none;
+
+}
+
+.PlayerInputList .PlayerInputList-btn-group button {
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
+    padding: 8px;
+    margin-bottom: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    text-indent: 0;
+    vertical-align: middle;
+    font-size: 22px;
+    color: green;
+    background: #fff;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 2px 2px 9px 0px #444;
+    transition: 240ms all ease-in;
+    will-change: opacity box-shadow color background-color;
+}
+
+.PlayerInputList .PlayerInputList-btn-group button.negative-action {
+    color: darkred;
+}
+
+.PlayerInputList .PlayerInputList-btn-group button:hover:not(:disabled) {
+    color: lime;
+    box-shadow: none;
+}
+
+.PlayerInputList .PlayerInputList-btn-group button.negative-action:hover {
+    color: red;
+}
+
+
+.PlayerInputList .PlayerInputList-btn-group button:disabled {
+    cursor: default;
+    opacity: 0.8;
+    color: darkgray;
+    box-shadow: none;
+}
+
+.PlayerInputList .PlayerInputList-btn-group button.negative-action:disabled {
+    opacity: 0.8;
+    color: darkgray;
+    box-shadow: none;
+}

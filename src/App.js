@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
+import { Switch, Link, Route, Redirect } from 'react-router-dom';
 import logo from './logo.svg';
 import burgerMenu from './img/gw-burger-menu.svg';
 import './App.css';
-import TeamInputList from './component/team-input-list';
 import { Match } from './model';
+import { MenuPage, MatchesPage, TheButton } from './component';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    const { match = new Match(0) } = props;
+    const { match = new Match() } = props;
     this.state = { match };
+  }
+
+  newMatch() {
+    this.setState({ match: new Match() });
   }
 
   render() {
@@ -17,18 +22,24 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={ logo } className="App-logo" alt="logo" />
           <h1 className="App-title">Table Football</h1>
-          <div role="button" className="burger-menu" aria-label="Menu"><img src={ burgerMenu } /></div>
+          <Link to="/"><div role="button" className="burger-menu" aria-label="Menu"><img alt="" src={ burgerMenu } /></div></Link>
         </header>
-        <p className="App-intro">
-          To get started, add the players you want for your teams
-        </p>
-        <TeamInputList match={ match } />
-        <div className="App-match-btn-group">
-          <button>Start Match</button>
-          <button disabled>Restart last match</button>
-        </div>
+        <Switch>
+          <Route exact path="/" render={ () => {
+            return (
+            <MenuPage>
+              <Link onClick={ this.newMatch.bind(this) } to="/matches/new"><TheButton>New Match</TheButton></Link>
+              <Link to="/matches"><TheButton>Recent Matches</TheButton></Link>
+              <Link to="/statistics"><TheButton disabled>Statistics</TheButton></Link>
+              <Link to="/about"><TheButton>About</TheButton></Link>
+            </MenuPage>);
+          } } />
+          <Route path="/matches" render={ () => <MatchesPage match={ match } /> } />
+          <Redirect from="/statistics" to="/" />
+          <Route path="/about" render={ () => (<div><h1>About</h1><article style={{ width: 360, margin: '0 auto' }}><h2>The Table Football Web App</h2><p>This app is a demo on building a real-world React web application, and for the fun purpose of playing table football, and keeping scores logged for a fair match.<br /><br /><strong>— Roberth Hansson-Tornéus</strong><br />(Gawee.Narak@gmail.com)</p></article><div className="App-match-btn-group"><Link to="/"><TheButton>Back to Main Menu</TheButton></Link></div></div>) } />
+        </Switch>
       </div>
     );
   }

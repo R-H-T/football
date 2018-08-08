@@ -1,0 +1,94 @@
+
+.IncroButton-btn-group {
+    position: relative;
+}
+
+.IncroButton-btn-group .number-badge {
+    position: relative;
+    margin: 8px;
+    width: 40px;
+    text-align: center;
+    text-indent: 0;
+    background: #43A047;
+    min-height: 40px;
+    min-width: 40px;
+    color: #fff;
+    font-size: 22px;
+    padding: 8px;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    user-select: none;
+}
+
+.IncroButton-btn-group input.number-badge.thousand {
+    padding-top: 5px;
+    padding-bottom: 11px;
+}
+
+.IncroButton-btn-group input.number-badge.thousand.negative {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.IncroButton-btn-group::after {
+    content: attr(data-subk);
+    width: 48px;
+    height: 22px;
+    position: absolute;
+    padding: 1px;
+    vertical-align: middle;
+    font-size: 11px;
+    font-weight: 100;
+    text-align: center;
+    bottom: 8px;
+    left: calc(50% - (48px/2));
+    right: 0;
+}
+
+.IncroButton-btn-group button {
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
+    padding: 8px;
+    padding-top: 11px;
+    margin-bottom: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    text-indent: 0;
+    vertical-align: middle;
+    font-size: 22px;
+    color: green;
+    background: #fff;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 2px 2px 9px 0px #444;
+    transition: 240ms all ease-in;
+    will-change: opacity box-shadow color background-color;
+}
+
+.IncroButton-btn-group button.negative-action {
+    color: darkred;
+}
+
+.IncroButton-btn-group button:hover:not(:disabled) {
+    color: lime;
+    box-shadow: none;
+}
+
+.IncroButton-btn-group button.negative-action:hover {
+    color: red;
+}
+
+
+.IncroButton-btn-group button:disabled {
+    cursor: default;
+    opacity: 0.8;
+    color: darkgray;
+    box-shadow: none;
+}
+
+.IncroButton-btn-group button.negative-action:disabled {
+    opacity: 0.8;
+    color: darkgray;
+    box-shadow: none;
+}

@@ -1,0 +1,38 @@
+
+.TheButton {
+  width: 100%;
+  cursor: pointer;
+  font-size: large;
+  padding: 16px;
+  background: #43A047;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  box-shadow: 1px 2px 4px 1px #444;
+  transition: 220ms all ease-out;
+  will-change: box-shadow border color background;
+}
+
+.TheButton.cancel {
+  background-color: #d84315;
+}
+
+.TheButton:hover:not(:disabled) {
+  background: #fff;
+  color: #43A047;
+  border: 2px solid #43A047;
+  box-shadow: 0px 0px 0px 0px #444;
+}
+
+.TheButton.cancel:hover:not(:disabled) {
+  color: #d84315;
+  border-color: #d84315;
+}
+
+.TheButton:disabled {
+  cursor: default;
+  opacity: 0.8;
+  background: #ccc;
+  color: #999;
+  box-shadow: 0px 0px 0px 0px #444;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './player-input-list.css';
 import gwUser from './../../img/gw-user.svg';
 import { Player } from '../../model';
+import { IconTextInputField, IncroButton } from './../';
 
 class PlayerInputList extends Component {
   constructor (props) {
@@ -23,9 +24,9 @@ class PlayerInputList extends Component {
   removePlayer() {
     const allPlayers = this.state.players;
     const removedPlayer = allPlayers.pop();
-    console.log('removed player', removedPlayer);
     this.setState({ players: [ ...allPlayers ] });
     this.props.parentHandler(allPlayers, this.state.teamId);
+    return removedPlayer;
   }
 
   playerById(id = -1) {
@@ -43,6 +44,10 @@ class PlayerInputList extends Component {
     this.props.parentHandler(players, teamId);
   }
 
+  validate() {
+    // TODO: Add validation here or rely only on server side validation.
+  }
+
   render() {
     const { players } = this.state;
     const limit = { min: 1, max: 4 };
@@ -52,27 +57,11 @@ class PlayerInputList extends Component {
           {
               (players.length <= 0) ? (<li>No players</li>) :
                 (players.map((player, key) => <li key={ player.id }>
-                    <div className="input-field-group">
-                        <span className="icon-field" role="img" aria-label="Player icon"><img style={{ verticalAlign: 'middle' }} src={ gwUser } />{ /* <span role="img" aria-label="football" style={{ fontSize: 8 }}>⚽</span>🏃‍*/ }</span>
-                        <input className="text-field"
-                               onChange={ this.onChangePlayerName.bind(this, player.id) }
-                               type="text"
-                               rel="name"
-                               placeholder={`Name of Player ${ key + 1 }`}
-                               autoComplete="true"
-                               autoCorrect="false"
-                               value={ player.name } />
-                    </div>
+                    <IconTextInputField placeholder={ `Name of Player ${ (key + 1) }` } value={ player.name } iconSrc={ gwUser } onChangeAction={ this.onChangePlayerName.bind(this, player.id) } rel={ 'name' }  />
                 </li>))
             }
         </ul>
-        <div className="PlayerInputList-btn-group">
-          <button onClick={ (players.length > limit.min) ? this.removePlayer : ()=>{} }
-                  className="negative-action"
-                  disabled={ (players.length <= limit.min) }>-</button>
-          <input className="number-badge" type="text" aria-label="Number of players added" value={ players.length || 0} readOnly />
-          <button onClick={ (players.length < limit.max) ? this.addNewPlayer : ()=>{} } disabled={ (players.length >= limit.max) }>+</button>
-        </div>
+        <IncroButton addAction={ this.addNewPlayer } removeAction={ this.removePlayer } value={ players.length || 0 } limit={ limit } />
       </div>
     );
   }

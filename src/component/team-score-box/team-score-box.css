@@ -1,0 +1,62 @@
+
+.TeamScoreBox ul {
+    list-style: none;
+    margin-left: -42px;
+}
+
+.TeamScoreBox .IceBox {
+    margin-bottom: 68px;
+}
+
+.TeamScoreBox .IconTextInputField .icon-field {
+    padding: 20px;
+    padding-left: 8px;
+}
+
+.TeamScoreBox .IconTextInputField .text-field {
+    margin-right: 16px;
+}
+
+.TeamScoreBox .IconTextInputField input.text-field {
+    text-indent: 42px;
+}
+
+.TeamScoreBox .IconTextInputField input.text-field {
+    width: 50%;
+    max-width: 32%;
+    padding: 16px;
+    margin-right: 16px;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    max-height: 38px;
+    font-weight: 100;
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.TeamScoreBox .IconTextInputField input.text-field.read-only {
+    background: none;
+}
+
+@media all and (min-width: 321px) {
+    .TeamScoreBox .IconTextInputField input.text-field {
+        margin-right: 13px;
+    }
+}
+
+/* Galaxy S5 Support */
+@media all and (max-width: 360px) and (max-height: 640px) and (orientation: portrait) {
+    .TeamScoreBox .IconTextInputField input.text-field {
+        margin-right: 28px;
+    }
+}
+
+@media all and (min-width: 500px) {
+    .TeamScoreBox .IconTextInputField input.text-field {
+        max-width: 50%;
+    }
+}

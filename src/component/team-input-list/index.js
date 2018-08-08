@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './team-input-list.css';
 import { Player, Team, Match } from './../../model';
-import { PlayerInputList } from './../';
+import { PlayerInputList, IceBox } from './../';
 
 class TeamInputList extends Component {
   constructor (props) {
@@ -30,24 +30,17 @@ class TeamInputList extends Component {
         <ul>
           {
             (teams.length <= 0) ? (<li>No players</li>) : (
-              teams.map(team =>
-                <li key={ team.id }>
-                  <div className="box">
-                    <h2 style={{
-                      backgroundColor: team.color,
-                      padding: 16,
-                      borderTopRightRadius: 20,
-                      borderTopLeftRadius: 20,
-                      border: '3px solid #fff',
-                      marginTop: -3,
-                      marginLeft: -3,
-                      marginRight: -3, }}>Team { (team.id + 1) }</h2>
+              teams.map((team, key) => {
+                const title = `Team ${ (key + 1) }`;
+                return (<li key={ team.id }>
+                  <IceBox title={ title } lidColor={ team.color }>
                     <PlayerInputList
-                        parentHandler={ this.onKeyUpHandler.bind(this) }
-                        players={ team.players }
-                        teamId={ team.id } />
-                  </div>
-                </li>)
+                      parentHandler={ this.onKeyUpHandler.bind(this) }
+                      players={ team.players }
+                      teamId={ team.id } />
+                  </IceBox>
+                </li>);
+                })
               ) }
         </ul>
       </div>

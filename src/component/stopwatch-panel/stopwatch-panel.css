@@ -1,0 +1,136 @@
+
+.StopwatchPanel {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    transition: 1s position top left right width height background ease-in-out;
+    will-change: position, box-shadow, border-radius, height, width, top, left, right, z-index, contents, background-color, padding-left, padding-top, padding-right;
+}
+
+.StopwatchPanel button {
+    cursor: pointer;
+    padding: 8px;
+    border: none;
+    border-radius: 100px;
+    background-color: #039BE5;
+    color: #fff;
+    width: 58px;
+    height: 58px;
+    box-shadow: 1px 3px 15px black;
+    transition: 240ms all ease-out;
+    will-change: opacity, backghround-color, box-shadow, color, cursor, border, outline, transform, border-top-right-radius;
+}
+
+.StopwatchPanel button:disabled {
+    opacity: 0.8;
+    background-color: #666;
+    color: #aaa;
+    box-shadow: none;
+    cursor: default;
+}
+
+.StopwatchPanel button:hover:not(:disabled):not(.counting) {
+    background-color: #039BE5dd;
+    border: 3px solid #fff;
+    border-top-right-radius: 30px;
+    transform: rotateZ(50deg);
+    box-shadow: 0 0 8px 4px #29b8ff, 0 0 3px 2px #ffffff, 0 0 8px 4px #29b8ff;
+}
+
+.StopwatchPanel button:focus {
+    outline: none;
+    box-shadow: 0 0 8px 4px #29b8ff, 0 0 3px 2px #ffffff, 0 0 8px 4px #29b8ff, 1px 3px 15px black;
+}
+
+.StopwatchPanel button:active:not(:disabled) {
+    background-color: #29b8ff;
+    box-shadow: none;
+}
+
+.StopwatchPanel button.counting {
+    background-color: #e25656;
+    animation: StopwatchPanel-pulse-animation 1s ease-in-out infinite alternate-reverse;
+}
+
+.StopwatchPanel button.counting:hover:not(:disabled) {
+    background-color: #ff7777;
+    border-radius: 10px;
+    border: 3px solid #fff;
+    box-shadow: none;
+}
+
+.StopwatchPanel.active {
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    width: 100vw;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 18px;
+    top: 0;
+    border-radius: 10px;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: #263238;
+    box-shadow: -3px -9px 50px 13px black;
+}
+
+.StopwatchPanel.active::before {
+    content: '';
+    position: absolute;
+    height: 80px;
+    width: 300%;
+    width: 300vw;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 18px;
+    top: 0;
+    border-radius: 10px;
+    left: -100%;
+    left: -100vw;
+    z-index: -1;
+    background-color: #263238;
+    box-shadow: -3px -9px 50px 13px black;
+}
+
+.TimerDisplay {
+    position: relative;
+    height: 60px;
+    padding: 16px;
+    padding-bottom: 0;
+    display: flex;
+    flex-flow: row;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.TimerDisplay span {
+    text-rendering: optimizeLegibility;
+}
+
+.TimerDisplay::after {
+    content: '(days:hrs:min:sec:ms)';
+    position: absolute;
+    top: 38px;
+    left: 0;
+    right: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: middle;
+}
+
+@keyframes StopwatchPanel-pulse-animation {
+    from { box-shadow: 1px 3px 15px black; }
+    to { box-shadow: 0 0 8px 4px #ff7777, 0 0 3px 2px #ffffff, 0 0 8px 4px #ff7777, 1px 3px 15px black; }
+}

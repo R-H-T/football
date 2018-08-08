@@ -1,0 +1,30 @@
+
+.MatchList ul {
+    list-style: none;
+    padding: 8px;
+}
+
+.MatchList ul li {
+    margin-left: -16px;
+}
+
+.MatchList hr {
+    border: 2px solid gainsboro;
+    border-radius: 100px;
+    width: 80%;
+    opacity: 0.5;
+}
+
+.MatchList-list-header {
+    display: flex;
+    flex-flow: row;
+    width: 75%;
+    margin: 0 auto;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #534e58;
+}
+
+.MatchList-list-header div {
+    width: 30%;
+}

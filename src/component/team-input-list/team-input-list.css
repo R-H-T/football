@@ -10,51 +10,19 @@
     margin-left: -42px;
 }
 
-.TeamInputList .box h2 {
-    background-color: #c05a5a;
-    padding: 16px;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-    border: 3px solid #ffffff;
-    margin-top: -3px;
-    margin-left: -3px;
-    margin-right: -3px;
-}
-
-.TeamInputList .box {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    margin-bottom: 48px;
-    background-color: #4CAF50;
-    border: 3px solid #ffffff;
-    border-radius: 20px;
-    max-width: 512px;
-    margin-left: 8px;
-    margin-right: auto;
-    box-shadow: black 1px 2px 20px 0px;
-}
-
-.TeamInputList .PlayerInputList .text-field {
+.TeamInputList .IconTextInputField .text-field {
     margin-right: 16px;
 }
 
 @media all and (min-width: 321px) {
-    .TeamInputList .PlayerInputList .text-field {
-        margin-right: 0;
+    .TeamInputList .IconTextInputField .text-field {
+        margin-right: 13px;
     }
 }
 
 /* Galaxy S5 Support */
 @media all and (max-width: 360px) and (max-height: 640px) and (orientation: portrait) {
-    .TeamInputList .PlayerInputList .text-field {
-        margin-right: 16px;
-    }
-}
-
-@media all and (min-width: 600px) {
-    .TeamInputList .box {
-        width: 100%;
-        margin-left: auto;
+    .TeamInputList .IconTextInputField .text-field {
+        margin-right: 28px;
     }
 }

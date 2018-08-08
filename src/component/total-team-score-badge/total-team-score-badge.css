@@ -1,0 +1,37 @@
+
+.TotalTeamScoreBadge {
+    background: #c05a5a;
+    width: 230px;
+    height: 116px;
+    padding: 1px;
+    padding-bottom: 16px;
+    border-radius: 20px;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 1px 10px black;
+    box-shadow: 0px 1px 10px black;
+    position: absolute;
+    right: calc(50% - (230px/2));
+    bottom: -58px;
+    zoom: 80%;
+}
+
+.TotalTeamScoreBadge-input {
+    border-radius: 100px;
+    border: 0px solid transparent;
+    -webkit-box-shadow: inset 1px 1px 4px 0px black;
+    box-shadow: inset 1px 1px 4px 0px black;
+    padding: 12px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: -4px;
+    width: 158px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    color: #c05a5a;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-modify: read-only;
+}

@@ -1,0 +1,43 @@
+
+.IconTextInputField {
+    display: flex;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.IconTextInputField .icon-field {
+    padding: 16px;
+    margin-right: -58px;
+    margin-left: 16px;
+    vertical-align: middle;
+    border: none;
+    border: 0px solid #eeeeee00;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    z-index: 1;
+    user-select: none;
+}
+
+.IconTextInputField .text-field {
+    width: 100%;
+    padding: 16px;
+    margin-right: 16px;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    text-indent: 64px;
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-radius: 8px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.251);
+    background: #ffffff40;
+}
+
+.IconTextInputField .text-field::placeholder {
+    font-weight: 100;
+    font-style: italic;
+    color: #eee;
+}

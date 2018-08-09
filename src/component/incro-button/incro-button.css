@@ -63,7 +63,7 @@
     border-radius: 30px;
     box-shadow: 2px 2px 9px 0px #444;
     transition: 240ms all ease-in;
-    will-change: opacity box-shadow color background-color;
+    will-change: opacity, box-shadow, color, background-color;
 }
 
 .IncroButton-btn-group button.negative-action {

@@ -4,13 +4,13 @@
   cursor: pointer;
   font-size: large;
   padding: 16px;
-  background: #43A047;
+  background-color: #43A047;
   color: #fff;
   border: 2px solid #fff;
   border-radius: 5px;
   box-shadow: 1px 2px 4px 1px #444;
   transition: 220ms all ease-out;
-  will-change: box-shadow border color background;
+  will-change: box-shadow, border, border-color, color, background-color;
 }
 
 .TheButton.cancel {

@@ -1,4 +1,8 @@
 
+.TeamScoreBox {
+    will-change: contents;
+}
+
 .TeamScoreBox ul {
     list-style: none;
     margin-left: -42px;

@@ -3,6 +3,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    will-change: contents, height, width;
 }
 
 .TeamInputList ul {

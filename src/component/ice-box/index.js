@@ -1,5 +1,5 @@
-import React from 'react';
-import './ice-box.css';
+import React from 'react'
+import './ice-box.css'
 
 const IceBox = ({
     title = '',
@@ -12,6 +12,6 @@ const IceBox = ({
   backgroundColor: lidColor,
   }}>{ title }{ (winner) ? ( <span role="img" aria-label="" title="Winner's smile" style={{ position: 'absolute', right: 20 }}>😁</span>) : '' }</h2>
   { children }
-</div>);
+</div>)
 
-export default IceBox;
+export default IceBox

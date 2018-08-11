@@ -1,5 +1,5 @@
-import React from 'react';
-import './icon-text-input-field.css';
+import React from 'react'
+import './icon-text-input-field.css'
 
 const IconTextInputField = ({
   value = '',
@@ -25,6 +25,6 @@ const IconTextInputField = ({
             readOnly={ isReadOnly }
             />
     { children }
-</div>);
+</div>)
 
-export default IconTextInputField;
+export default IconTextInputField

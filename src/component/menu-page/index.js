@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class MenuPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { ...props };
-  }
+  state = { ...this.props }
 
   render() {
-    const { title = 'Main Menu', intro = 'Choose the path you seek', children } = this.state;
+    const {
+      title = 'Main Menu',
+      intro = 'Choose the path you seek',
+      children
+    } = this.state
     return (<div>
       <p className="App-intro">
         { intro }
@@ -16,8 +17,8 @@ class MenuPage extends Component {
       <div className="App-match-btn-group">
         { children }
       </div>
-    </div>);
+    </div>)
   }
 }
 
-export default MenuPage;
+export default MenuPage

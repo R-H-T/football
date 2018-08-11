@@ -1,33 +1,34 @@
-import React, { Component }  from 'react';
-import { Link } from 'react-router-dom';
-import './match-list.css';
-import { TheButton } from './../';
-import { Match } from '../../model';
+import React, { Component }  from 'react'
+import { Link } from 'react-router-dom'
+import './match-list.css'
+import { TheButton } from './../'
 
 class MatchList extends Component {
-    constructor(props) {
-        super(props);
-        const { matches = [] } = this.props;
-        this.state = { matches };
-    }
+    state = { matches: this.props.matches || [] }
 
     render() {
-        const { matches } = this.state;
+        const { matches } = this.state
         return (<div className="MatchList">
             <h1>Matches</h1>
             <hr />
-            <div className="MatchList-list-header"><div>#</div><div>Name</div><div>Winner</div><div>Date</div></div>
+            <div className="MatchList-list-header">
+                <div>#</div>
+                <div>Name</div>
+                <div>Winner</div>
+                <div>Date</div>
+            </div>
             <hr />
             <ul>
                 {
-                    (matches.length <= 0)
-                    ? (<li><p><small><em>No recent matches to display</em></small></p></li>)
-                    : [new Match()].map((match, key) => (<li key={ match.id } className="MatchList-list-item">
-                            <div>{ (key + 1) }</div>
-                            <div>{ match.name }</div>
-                            <div>{ 'Not available' }</div>
-                            <div>{ match.createdAt }</div>
-                    </li>))
+                (matches.length <= 0) ? (<li><p><small><em>No recent matches to display</em></small></p></li>)
+                : matches.map((match, key) => (
+                <li key={ match.id }
+                    className="MatchList-list-item">
+                    <div>{ (key + 1) }</div>
+                    <div>{ match.name }</div>
+                    <div>{ 'Not available' }</div>
+                    <div>{ match.createdAt }</div>
+                </li>))
                 }
             </ul>
             <hr />
@@ -37,8 +38,8 @@ class MatchList extends Component {
                     <TheButton>Back to Main Menu</TheButton>
                 </Link>
             </div>
-        </div>);
+        </div>)
     }
 }
 
-export default MatchList;
+export default MatchList

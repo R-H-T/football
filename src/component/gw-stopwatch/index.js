@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const GWStopwatch = ({ angle = 0 }) => {
     return (<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="60" height="67" xmlSpace="preserve" id="stopwatchSymbol">
@@ -42,7 +42,7 @@ const GWStopwatch = ({ angle = 0 }) => {
     <circle id="stopwatchSymbol-stopwatchBodyFrame" stroke="rgb(151, 151, 151)" strokeWidth="4" strokeMiterlimit="10" fill="none" cx="30" cy="37" r="28" />
     <path id="stopwatchSymbol-stopwatchPin" stroke="rgb(136, 136, 136)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" fill="none" d="M 0,5 L 0,-23" transform={`translate(30, 37) rotate(${ angle })`} />
     <circle id="stopwatchSymbol-stopwatchPinHolder" stroke="rgb(128, 128, 128)" strokeWidth="1" strokeMiterlimit="10" fill="rgb(255, 255, 255)" cx="0" cy="-0" r="4"  transform="translate(30, 37)" />
-</svg>);
-};
+</svg>)
+}
 
-export default GWStopwatch;
+export default GWStopwatch

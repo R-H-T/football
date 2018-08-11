@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { TeamInputList, TheButton } from './../';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { TeamInputList, TheButton } from './../'
+import { Link } from 'react-router-dom'
+import { Match } from '../../model';
 
 class StartPage extends Component {
-  constructor(props) {
-    super(props);
-    const { match } = this.props;
-    this.state = { match };
-  }
+  state = { match: this.props.match || new Match() }
 
   render() {
-    const { match } = this.state;
-    const negativeAction = this.props.toggleDoneEditingAction.bind(this, false);
-    const positiveAction = this.props.toggleDoneEditingAction.bind(this, true);
-    const doubleAction = () => { positiveAction(); negativeAction(); };
+    const { match } = this.state
+    const negativeAction = this.props.toggleDoneEditingAction.bind(this, false)
+    const positiveAction = this.props.toggleDoneEditingAction.bind(this, true)
+    const doubleAction = () => {
+      positiveAction()
+      negativeAction()
+    }
     return (<div>
       <p className="App-intro">
         To get started, add the players you want for your teams
@@ -33,8 +33,8 @@ class StartPage extends Component {
           <TheButton iscancel="true">Cancel</TheButton>
         </Link>
       </div>
-    </div>);
+    </div>)
   }
 }
 
-export default StartPage;
+export default StartPage

@@ -13,7 +13,7 @@ $ npm install
 ----
 
 ### Get Started
-Clone the backend server at [https://github.com/R-H-T/tf-graphql] and follow the instructions.
+Clone the backend server at https://github.com/R-H-T/tf-graphql and follow the instructions.
 
 When you've got the backend up and running, run the following command for this project:
 

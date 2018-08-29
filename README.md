@@ -3,7 +3,10 @@ A simplified score tracking React web app designed to run on Mobile, Desktop and
 
 This project is the front-end which is being persisted by the Table Football - [GraphQL API Server](0) project.
 
-----
+
+![][image-1]
+
+---
 
 ### Setup
 ```sh
@@ -50,3 +53,4 @@ Copyright ©2018 – Roberth Hansson-Tornéus – [R-H-T](1) (Gawee.Narak@gmail.
 
 [1]: https://github.com/R-H-T
 [2]: CRA_README.md
+[image-1]: r-h-t_tablefootball_md.png

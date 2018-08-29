@@ -39,7 +39,7 @@ class TeamInputList extends Component {
               teams.map((team, key) => {
                 const title = `Team ${ (key + 1) }`
                 return (<li key={ team.id }>
-                  <IceBox title={ title } lidColor={ team.color }>
+                  <IceBox title={ title } lidColor={ team.teamColor }>
                     <PlayerInputList
                       parentHandler={ this.onKeyUpHandler.bind(this) }
                       players={ team.players }

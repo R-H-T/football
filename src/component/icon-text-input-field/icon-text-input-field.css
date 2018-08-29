@@ -22,6 +22,7 @@
 .IconTextInputField .text-field {
     width: 100%;
     padding: 16px;
+    padding-top: 20px;
     margin-right: 16px;
     font-family: sans-serif;
     font-size: 20px;
@@ -33,13 +34,34 @@
     border-bottom-right-radius: 8px;
     border-radius: 8px;
     color: #fff;
-    background: rgba(255, 255, 255, 0.251);
-    background: #ffffff40;
+    background: none;
+    background-color: rgba(255, 255, 255, 0.251);
+    background-color: #ffffff40;
+    background-repeat: no-repeat!important;
+    background-position: left 16px center!important;
     will-change: box-shadow, color, contents;
+}
+
+.IconTextInputField .text-field.read-only, .IconTextInputField .text-field:read-only {
+    background: none;
+}
+
+.IconTextInputField .text-field:not(.text-field.read-only, :read-only) {
+    background-color: rgba(255, 255, 255, 0.251);
+    background-color: #ffffff40;
 }
 
 .IconTextInputField .text-field::placeholder {
     font-weight: 100;
     font-style: italic;
     color: #eee;
+}
+
+.IconTextInputField .text-field[data-icon-src] {
+    background-repeat: no-repeat;
+    background-position: left 16px center;
+    padding-top: 16px;
+    padding-left: 64px;
+    text-indent: 16px;
+    margin-left: 16px;
 }

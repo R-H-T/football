@@ -23,6 +23,7 @@
     height: 58px;
     box-shadow: 1px 3px 15px black;
     transition: 240ms all ease-out;
+    z-index: 1;
     will-change: opacity, background-color, border-color, border-width, box-shadow, color, cursor, border, outline, transform, border-radius, border-top-right-radius;
 }
 

@@ -1,0 +1,7 @@
+
+.MatchDetail hr {
+    border: 2px solid gainsboro;
+    border-radius: 100px;
+    width: 80%;
+    opacity: 0.5;
+}

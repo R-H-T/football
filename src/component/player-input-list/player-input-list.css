@@ -10,3 +10,26 @@
     margin-left: -42px;
 }
 
+.PlayerInputList .PlayerInputList-list-enter {
+    opacity: 0.01;
+    transform: rotateX(180deg) scale(0.1);
+}
+
+.PlayerInputList .PlayerInputList-list-enter.PlayerInputList-list-enter-active {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1.0);
+    transition: opacity 200ms ease-in, transform 200ms ease-in;
+    will-change: opacity, transform;
+}
+
+.PlayerInputList .PlayerInputList-list-exit {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1.0);
+}
+
+.PlayerInputList .PlayerInputList-list-exit.PlayerInputList-list-exit-active {
+    opacity: 0.01;
+    transform: rotateX(180deg) scale(0.1);
+    transition: opacity 150ms ease-in, transform 150ms ease-in;
+    will-change: opacity, transform;
+}

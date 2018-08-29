@@ -50,8 +50,9 @@ class StopwatchPanel extends Component {
       angle = 0,
       initialTime = new Date(),
       stopTime = new Date(),
-      lastTimeDiff = new Date(0),
+      lastTimeDiff = new Date(this.props.stopTime - this.props.initialTime),
       enableSingleButtonMode = false,
+      shouldStop = false,
     } = this.props
     this.state = {
       angle,
@@ -60,6 +61,7 @@ class StopwatchPanel extends Component {
       isCounting: false,
       lastTimeDiff,
       enableSingleButtonMode,
+      shouldStop,
     }
     this.updateAngle = this.updateAngle.bind(this)
     this.setAngle = this.setAngle.bind(this)
@@ -72,6 +74,16 @@ class StopwatchPanel extends Component {
   get seconds() {
     const { initialTime, stopTime } = this.state
     return Math.trunc(parseInt((stopTime - initialTime) / 1000, 0))
+  }
+
+  componentDidUpdate(newProps, oldProps) {
+    if (newProps.shouldStop && oldProps.isCounting) {
+      this.stop()
+    }
+  }
+
+  componentWillUnmount() {
+    this.stop()
   }
 
   start() {
@@ -121,6 +133,12 @@ class StopwatchPanel extends Component {
   incrementSeconds() {
     this.setState({ stopTime: new Date() })
     this.updateAngle()
+    const { stopTime, initialTime } = this.state
+    const lastTimeDiff = new Date(stopTime - initialTime)
+    this.props.readTimeCallback(lastTimeDiff)
+    if (this.state.shouldStop && this.state.isCounting) {
+      this.stop()
+    }
   }
 
   updateAngle() {
@@ -130,6 +148,7 @@ class StopwatchPanel extends Component {
   setAngle(angle) {
     this.setState({ angle })
   }
+
   render() {
     const { stopTime, initialTime, isCounting } = this.state
     const diff = new Date(stopTime - initialTime)
@@ -148,7 +167,7 @@ class StopwatchPanel extends Component {
         minutes={ min }
         seconds={ sec }
         milliseconds={ ms } />
-      <button className={ `${ (isCounting) ? 'counting' : '' }` } onClick={ this.start }>{ (isCounting) ? 'Stop' : 'Start' }</button>
+      <button className={ `${ (isCounting) ? 'counting' : '' }` } disabled={ this.shouldStop } onClick={ (!this.state.shouldStop) ? this.start : () => {} }>{ (isCounting) ? 'Stop' : 'Start' }</button>
     </div>)
   }
 }

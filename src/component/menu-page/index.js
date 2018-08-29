@@ -10,10 +10,11 @@ class MenuPage extends Component {
       children
     } = this.state
     return (<div>
+      <h1>{ title }</h1>
       <p className="App-intro">
         { intro }
       </p>
-      <h1>{ title }</h1>
+      <br />
       <div className="App-match-btn-group">
         { children }
       </div>

@@ -1,36 +1,43 @@
-# Table Football
-A simplified score tracker React app.
+# Table Football – React Web App
+A simplified score tracking React web app designed to run on Mobile, Desktop and TV, and projected on a building on fun events. 🏢✌️🔦
 
-This is still work in progress.
-TODOs:
-* Add persistence (backend, RESTful or GraphQL).
-* Docker.
-* Add Redux.
-* Add basic form validation.
-* Display statistics.
-* Some tuning, and optimization tweaks.
-* More tests.
+This project is the front-end which is being persisted by the Table Football - [GraphQL API Server](0) project.
 
 ----
 
 ### Setup
-1. `npm install`
+```sh
+$ npm install
+```
 
 ----
 
 ### Get Started
-1. `npm start`
+Clone the backend server at [https://github.com/R-H-T/tf-graphql] and follow the instructions.
+
+When you've got the backend up and running, run the following command for this project:
+
+```sh
+$ npm start
+```
+
+Now the project should be running on http://localhost:3000
+and your local network. (_You can also open it with your smartphone, tablet or TV, etc._)
 
 ----
 
 ### Production Build
-1. `npm run build`
+```sh
+$ npm run build
+```
 The optimized files will be generated into their own folder `build`.
 
 ----
 
 ### Run Tests
-1. `npm test`
+```sh
+$ npm test
+```
 
 ----
 
@@ -39,7 +46,7 @@ See the [CRA_README.md][2]-file for more details on the React bootstrap.
 
 ----
 ### License
-Copyright ©2018 – Roberth Hansson-Tornéus ([R-H-T][1]), all rights reserved.
+Copyright ©2018 – Roberth Hansson-Tornéus – [R-H-T](1) (Gawee.Narak@gmail.com), all rights reserved.
 
 [1]: https://github.com/R-H-T
 [2]: CRA_README.md

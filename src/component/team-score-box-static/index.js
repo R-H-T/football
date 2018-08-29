@@ -1,5 +1,5 @@
 import React from 'react'
-import './team-score-box.css'
+import './team-score-box-static.css'
 import gwUser from './../../img/gw-user.svg'
 import {
     IceBox,
@@ -8,14 +8,11 @@ import {
     TotalTeamScoreBadge
 } from './../'
 
-const TeamScoreBox = ({
+const TeamScoreBoxStatic = ({
     match,
     match: { teams },
-    freeze = false,
-    addGoal = ()=>{},
-    removeGoal = ()=>{},
 }) => (
-    <div className="TeamScoreBox">
+    <div className="TeamScoreBoxStatic">
         <ul>
         {
             (teams.length <= 0) ? (<li>Loading...</li>) : (
@@ -36,24 +33,12 @@ const TeamScoreBox = ({
                             iconSrc={ gwUser }
                             rel={ 'name' }
                             isReadOnly>
-                            <IncroButton
-                                value={
-                                    match.goalsBy(player.id, team.id) || 0
-                                    }
-                                    addAction={
-                                        () => addGoal(
-                                                    player.id,
-                                                    team.id,
-                                                    null,
-                                                    new Date())
-                                                    }
-                                    removeAction={
-                                        () => removeGoal(
-                                                    player.id,
-                                                    team.id
-                                                    )
-                                                    }
-                                    isDisabled={ freeze } />
+                        <IncroButton
+                            value={
+                                match.goalsBy(player.id, team.id) || 0
+                                }
+                            noControls
+                            isDisabled />
                         </IconTextInputField>
                         </li>)
                     }) }
@@ -71,4 +56,4 @@ const TeamScoreBox = ({
         </ul>
     </div>)
 
-export default TeamScoreBox
+export default TeamScoreBoxStatic

@@ -1,33 +1,35 @@
 
-.TeamScoreBox {
+.TeamScoreBoxStatic {
     will-change: contents;
 }
 
-.TeamScoreBox ul {
+.TeamScoreBoxStatic ul {
     list-style: none;
     margin-left: -42px;
 }
 
-.TeamScoreBox .IceBox {
+.TeamScoreBoxStatic .IceBox {
     margin-bottom: 68px;
 }
 
-.TeamScoreBox .IconTextInputField .icon-field {
-    /* padding: 20px;
-    padding-left: 8px; */
+.TeamScoreBoxStatic .IconTextInputField {
+    justify-content: center;
+}
+
+.TeamScoreBoxStatic .IconTextInputField .icon-field {
     padding: 16px;
     padding-left: 16px;
 }
 
-.TeamScoreBox .IconTextInputField .text-field {
+.TeamScoreBoxStatic .IconTextInputField .text-field {
     margin-right: 16px;
 }
 
-.TeamScoreBox .IconTextInputField input.text-field {
+.TeamScoreBoxStatic .IconTextInputField input.text-field {
     text-indent: 42px;
 }
 
-.TeamScoreBox .IconTextInputField input.text-field {
+.TeamScoreBoxStatic .IconTextInputField input.text-field {
     width: 50%;
     max-width: 32%;
     padding: 16px;
@@ -44,29 +46,29 @@
     color: #fff;
 }
 
-.TeamScoreBox ul:first-of-type {
-    margin-bottom: 8px;
+.TeamScoreBoxStatic .IconTextInputField input.text-field.read-only {
+    background: none;
 }
 
-.TeamScoreBox .IncroButton-btn-group .number-badge {
-    margin: 0 8px;
+.TeamScoreBoxStatic .IncroButton-btn-group .number-badge {
+    margin: 0;
 }
 
 @media all and (min-width: 321px) {
-    .TeamScoreBox .IconTextInputField input.text-field {
+    .TeamScoreBoxStatic .IconTextInputField input.text-field {
         margin-right: 13px;
     }
 }
 
 /* Galaxy S5 Support */
 @media all and (max-width: 360px) and (max-height: 640px) and (orientation: portrait) {
-    .TeamScoreBox .IconTextInputField input.text-field {
+    .TeamScoreBoxStatic .IconTextInputField input.text-field {
         margin-right: 28px;
     }
 }
 
 @media all and (min-width: 500px) {
-    .TeamScoreBox .IconTextInputField input.text-field {
+    .TeamScoreBoxStatic .IconTextInputField input.text-field {
         max-width: 50%;
     }
 }

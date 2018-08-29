@@ -9,13 +9,88 @@ class Match {
     ) {
     this.id = id
     this.teams = teams
+    this.name = ""
     this.createdAt = new Date()
     this.isActive = false
     this.startTime = null
     this.pauseTime = null
     this.endTime = null
-    this.timeActive = null
+    this.timeActive = 0
     this.goals = []
+  }
+
+  static matchFromResponseData(match) {
+    const { id, name, timeActive, teams=[], goals=[], createdAt } = match
+    const newTeams = teams.map(({ id, name, teamColor, players }) => {
+      const newPlayers = players.map(player => new Player(player.id, player.name))
+      return new Team(id, name, newPlayers, teamColor)
+    })
+    const newGoals = goals.map(({ id, match, player, team, time, points, createdAt }) => {
+      const goal = new Goal(player.id, team.id, time, new Date(createdAt), points)
+      goal.id = id
+      goal.match = { id: match.id, name: match.name }
+      return goal
+    });
+    const newMatch = new Match(id, newTeams)
+    newMatch.name = name
+    newMatch.goals = newGoals
+    newMatch.timeActive = timeActive
+    newMatch.createdAt = new Date(createdAt)
+    return newMatch
+  }
+
+  toMatchInput() {
+    const teams = this.teams.map(team => {
+      const players = team.players.map(({ id, name }) => {
+        return {
+          id,
+          name,
+        }
+      })
+      return {
+        id: team.id,
+        name: team.name,
+        teamColor: team.teamColor,
+        players,
+      }
+    })
+    const goals = this.goals.map(goal => {
+      const teamName = teams.filter(team => (team.id === goal.team))[0].name || ''
+      let playerName = ''
+      let tmpPlayer = null
+      for(const team of teams) {
+        tmpPlayer = team.players.filter(player => (player.id === goal.player))[0] || null
+        if (tmpPlayer !== null) {
+          playerName = `${ tmpPlayer.name }`
+          tmpPlayer = null
+          break
+        }
+      }
+      const goalTeam = {
+        id: goal.team || '1234',
+        name: teamName,
+      }
+      const goalPlayer = {
+        id: goal.player || '1234',
+        name: playerName,
+      }
+      return {
+        id: goal.id || '1234',
+        match: goal.match,
+        player: goalPlayer,
+        team: goalTeam,
+        time: goal.time || 0,
+        points: goal.points || 1,
+      }
+    })
+
+    return {
+      id: this.id,
+      timeActive: this.timeActive,
+      name: this.name,
+      teams: teams,
+      goals,
+    }
   }
 
   get isStarted() { return (this.startTime !== null) }
@@ -33,6 +108,7 @@ class Match {
 
   addGoal(player = -1, team = -1, time, date) {
     const goal = new Goal(player, team, time, date)
+    goal.match = { id: this.id, name: this.name }
     this.goals.push(goal)
   }
 

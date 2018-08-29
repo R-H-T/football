@@ -7,6 +7,7 @@ const IncroButton = ({
   value = 0,
   ariaLabel = null,
   limit = { min: 0, max: 99999 },
+  noControls = false,
   isDisabled = false,
   }) => {
     const finalValue = (value >= limit.max)
@@ -23,11 +24,15 @@ const IncroButton = ({
       data-subk={ (isThousand)
         ? `- ${ parseInt(valueString.substr((valueString.length - 3), 3), 0) } -`
         : ''}>
-  <button
-    onClick={ (finalValue > limit.min  && !isDisabled)
-              ? removeAction : ()=>{} }
-    className="negative-action"
-    disabled={ (finalValue <= limit.min || isDisabled) }>-</button>
+  {
+    (!noControls)
+    ? <button
+          onClick={ (finalValue > limit.min  && !isDisabled)
+                    ? removeAction : ()=>{} }
+          className="negative-action"
+          disabled={ (finalValue <= limit.min || isDisabled) }>-</button>
+    : ''
+  }
   <input
     className={`number-badge${
       (isThousand)
@@ -43,13 +48,18 @@ const IncroButton = ({
       : valueString ) || 0)
     }
     readOnly
-    disabled={ isDisabled } />
-  <button
-    onClick={
-      (finalValue < limit.max && !isDisabled)
-      ? addAction : ()=>{}
-    }
-    disabled={ (finalValue >= limit.max || isDisabled) }>+</button>
+    nocontrols={ (noControls) ? 'true' : 'false' }
+    disabled={ (noControls) ? false : isDisabled } />
+    {
+    (!noControls)
+    ? <button
+        onClick={
+          (finalValue < limit.max && !isDisabled)
+          ? addAction : ()=>{}
+        }
+        disabled={ (finalValue >= limit.max || isDisabled) }>+</button>
+    : ''
+  }
 </div>)
 }
 

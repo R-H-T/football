@@ -2,6 +2,7 @@
   text-align: center;
   width: 100vw;
   min-width: 360px;
+  padding: 0;
 }
 
 .App-logo {
@@ -59,6 +60,81 @@
   margin-bottom: 16px;
 }
 
+.App-view-group {
+  display: flex;
+  flex-flow: column-reverse;
+}
+
+.App-view-group > div:first-of-type {
+  margin-top: 16px;
+  /* border-top: 8px solid gray;
+  border-top-style: double; */
+}
+
+.App-view-group .TheButton, .App-view-group .IconTextInputField .textfield {
+  width: 100%;
+  margin: 0 auto;
+  min-width: 360px;
+  max-width: 360px;
+}
+
+.App-view-group .TheButton.auth {
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  min-width: 278px;
+  max-width: 352px;
+}
+
+.App-view-group .IconTextInputField {
+  margin-left: -16px;
+  margin-right: -16px;
+  width: 100%;
+  min-width: 376px;
+  max-width: 376px;
+}
+
+.App-view-group .IconTextInputField .text-field {
+    text-indent: 42px;
+ }
+
+.App-view-group .AuthorizationView {
+  margin-top: -26px;
+}
+
+.App-view-group .AuthorizationView h2 {
+  margin-top: 0;
+}
+
+.App-view-group .AuthorizationView-form-field > div {
+  margin: 0 auto;
+  max-width: 345px;
+}
+
+.App-view-group .AuthorizationView.authorized {
+  display: block;
+}
+
+.transition-fade-enter {
+  opacity: 0;
+}
+
+.transition-fade-enter.transition-fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+  will-change: opacity;
+}
+
+.transition-fade-exit {
+  opacity: 1;
+}
+
+.transition-fade-exit.transition-fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 100ms ease-in;
+  will-change: opacity;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -68,13 +144,18 @@
   .App-header .burger-menu {
     padding: 32px 0px 0px;
   }
-
-  .App {
-    margin-left: 5px;
-  }
 }
 
 @media all and (min-width: 600px) and (orientation: landscape) {
+
+  /* .App-view-group .TheButton.auth {
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    min-width: 278px;
+    max-width: 352px;
+  } */
+
   .App-header .burger-menu {
     position: absolute;
     bottom: -85vh;
@@ -82,6 +163,30 @@
     background-color: #ff7733;
     border-radius: 100px;
     box-shadow: 4px 10px 30px 0px black;
+  }
+
+  .App-view-group {
+    padding-top: 50px;
+    min-width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+  }
+
+  .App-view-group > div:first-of-type {
+    min-width: 30%;
+  }
+
+  .App-view-group > div:first-of-type {
+    border-top: none;
+    border-top-style: none;
+    border-right: 8px solid gray;
+    border-right-style: double;
+  }
+
+  .App-view-group > div:last-of-type {
+    min-width: 30%;
+    padding-left: 16px;
   }
 }
 
@@ -93,5 +198,27 @@
     background-color: #ff7733;
     border-radius: 100px;
     box-shadow: 4px 10px 30px 0px black;
+  }
+
+  .App-view-group {
+    padding-top: 0;
+  }
+
+  .App-view-group .IconTextInputField {
+    margin-left: -18px;
+    margin-right: -16px;
+    width: 100%;
+    min-width: 312px;
+    max-width: 390px;
+  }
+
+  .App-view-group .AuthorizationView > div {
+    padding-right: 0;
+    margin-left: -8px;
+  }
+
+  .App-view-group .App-match-btn-group {
+    margin-left: -12px;
+    margin-right: 20px;
   }
 }

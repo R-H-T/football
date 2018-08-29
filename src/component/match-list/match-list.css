@@ -1,11 +1,131 @@
 
-.MatchList ul {
-    list-style: none;
+.MatchList-list {
+    margin-top: -8px;
+    margin-bottom: -8px;
     padding: 8px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    list-style: none;
+    min-width: 282px;
+    overflow-x: scroll;
 }
 
-.MatchList ul li {
-    margin-left: -16px;
+.MatchList-list li:not(.MatchList-team-list-item) {
+    margin: 0 auto;
+    margin-bottom: 8px;
+    padding: 16px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    width: 100%;
+    max-width: 75vw;
+    min-width: 600px;
+    background-color: #353533;
+    border: 1px solid #666666;
+    border-radius: 8px;
+    box-shadow: 1px 1px 12px 4px #333;
+    animation: 300ms all ease-in;
+}
+
+.MatchList-list li:not(.MatchList-team-list-item):not(:first-of-type) {
+    will-change: opacity, box-shadow;
+    box-shadow: 1px 1px 8px 0px #333;
+}
+
+.MatchList-list li:not(.MatchList-team-list-item):not(:first-of-type):hover {
+    cursor: pointer;
+    opacity: 0.8;
+    box-shadow: none;
+}
+
+.MatchList-list li:first-of-type {
+    margin: 0 auto;
+    margin-bottom: 8px;
+    padding: 16px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    width: 100%;
+    max-width: 75vw;
+    background-color: #534e58;
+    border: none;
+    border-radius: 8px;
+}
+
+.MatchList-list li:first-of-type div {
+    margin-top: 0 !important;
+    padding-top: 16px !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    font-style: normal !important;
+}
+
+.MatchList-list li div:not(:first-of-type):not(:last-of-type) {
+    min-width: 150px;
+    width: 100%;
+}
+
+.MatchList-list li:first-of-type div:last-of-type {
+    border: none!important;
+    background: none!important;
+    border-radius: 0!important;
+}
+
+.MatchList-list li:first-of-type div:not(:first-of-type) {
+    border-left: 3px solid #5e5964!important;
+    border-left-style: dashed!important;
+}
+
+.MatchList-list li:first-of-type div:first-of-type {
+    border: none;
+    background: none!important;
+    border-radius: 0;
+}
+
+.MatchList-list li div {
+    margin: 0 auto;
+    padding: 16px;
+    height: 22px;
+}
+
+.MatchList-list li div:first-of-type {
+    margin-top: 0;
+    margin-left: 0;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    min-height: 22px;
+    background-color: #5e5964;
+    color: #ccc;
+    border: 2px solid #353533;
+    border-radius: 100px;
+    padding: 16px;
+    text-align: center;
+    font-weight: 400;
+    vertical-align: middle;
+    line-height: 1.5em;
+}
+
+.MatchList-list li:not(.MatchList-team-list-item) div:last-of-type {
+    margin-top: -2px;
+    margin-right: 0;
+    width: 100%;
+    min-width: 78px;
+    height: 22px;
+    min-height: 22px;
+    background-color: #5e5964;
+    color: #eee;
+    border: 2px solid #353533;
+    border-radius: 30px;
+    padding: 16px;
+    padding-top: 18px;
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 100;
+    vertical-align: middle;
+    line-height: 1.5em;
 }
 
 .MatchList hr {
@@ -15,16 +135,58 @@
     opacity: 0.5;
 }
 
-.MatchList-list-header {
+.MatchList-team-list {
+    margin-top: -8px;
+    margin-bottom: 0;
+    padding: 0;
     display: flex;
-    flex-flow: row;
-    width: 75%;
-    margin: 0 auto;
-    padding: 16px;
-    border-radius: 10px;
-    background-color: #534e58;
+    flex-flow: column;
+    justify-content: flex-start;
+    list-style: lower-roman;
+    min-width: 80px;
+    max-width: 150px !important;
+    width: 100%;
+    overflow-x: none;
 }
 
-.MatchList-list-header div {
-    width: 30%;
+.MatchList-team-list li {
+    margin: 0 auto!important;
+    margin-bottom: 0!important;
+    padding: 0!important;
+    display: flex!important;
+    flex-flow: row!important;
+    justify-content: center!important;
+    width: 100%!important;
+    max-width: 100px!important;
+    background: none!important;
+    border: 1px solid #353533!important;
+    border-radius: 8px!important;
+}
+
+.MatchList-team-list li:first-of-type div {
+    margin-top: 0!important;
+    margin-left: 0!important;
+    width: 22px!important;
+    min-width: 22px!important;
+    height: 22px!important;
+    min-height: 22px!important;
+    background-color: none!important;
+    color: #ccc!important;
+    border: 2px solid #353533!important;
+    border-radius: 8px!important;
+    padding: 0 !important;
+    text-align: center!important;
+    font-weight: 400!important;
+    vertical-align: middle!important;
+    line-height: 1.5em!important;
+}
+
+.MatchList-list li .MatchList-team-list li {
+    margin: 0 auto;
+    margin-bottom: 8px;
+    max-width: 150px !important;
+    min-width: 150px;
+    background-color: none !important;
+    border: 1px solid none !important;
+    border-radius: 8px!important;
 }

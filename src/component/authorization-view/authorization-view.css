@@ -1,0 +1,70 @@
+
+.AuthorizationView {
+    padding: 16px;
+}
+
+.AuthorizationView .Tabs {
+    margin: 0 -16px;
+    border: none;
+    border-radius: 3px;
+    padding: 16px 4px;
+    /* background-color: #ddd; */
+}
+
+.AuthorizationView .Tabs button {
+    display: inline;
+    margin: 0;
+    border: none;
+    border-left: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 0;
+    background-color: gray;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 100;
+}
+
+.AuthorizationView .Tabs button:first-of-type {
+    border-radius: 100px 0 0 100px;
+    padding-left: 24px;
+    border: none;
+}
+
+.AuthorizationView .Tabs button:last-of-type {
+    border-radius: 0 100px 100px 0;
+    padding-right: 24px;
+}
+
+.AuthorizationView .Tabs button.active {
+    color: #333;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.251);
+}
+
+.AuthorizationView-button-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.AuthorizationView-button-group button {
+    font-weight: 100;
+    width: 100%;
+    min-width: 360px;
+    max-width: 360px;
+}
+
+.AuthorizationView-button-group button.auth {
+    background-color: white;
+    color: green;
+    max-width: 390px;
+}
+
+.AuthorizationView-authorized-group {
+    padding-top: 26px;
+    margin: -16px;
+}
+
+.AuthorizationView-authorized-group .TheButton {
+    margin-bottom: 8px;
+}

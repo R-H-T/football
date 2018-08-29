@@ -1,8 +1,64 @@
 import React, { Component } from 'react'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
 import './player-input-list.css'
 import gwUser from './../../img/gw-user.svg'
 import { Player } from '../../model'
 import { IconTextInputField, IncroButton } from './../'
+
+const PLAYERS_QUERY = gql`
+{
+  players {
+    name
+  }
+}
+`
+
+const PlayerInputListView = ({
+  limit = { min: 1, max: 4 },
+  players = [],
+  playersDataList = [],
+  onChangeAction = ()=>{},
+  addAction,
+  removeAction,
+}) => {
+  return (
+  <div className="PlayerInputList">
+    <TransitionGroup
+      component="ul"
+      >
+        {
+          (players.length <= 0) ? (<li>No players</li>) :
+            (players.map((player, index) => (
+            <CSSTransition
+              key={ index }
+              classNames="PlayerInputList-list"
+              timeout={{ enter: 200, exit: 150 }}>
+                <li key={ player.id }>
+                    <IconTextInputField
+                      placeholder={ `Name of Player ${ (index + 1) }` }
+                      value={ player.name }
+                      iconSrc={ gwUser }
+                      list={ { options: playersDataList } }
+                      onChangeAction={
+                        onChangeAction.bind(this, player.id)
+                      }
+                      rel={ 'name' }  />
+                </li>
+              </CSSTransition>
+            )
+            )
+          )
+        }
+        </TransitionGroup>
+    <IncroButton
+      addAction={ addAction }
+      removeAction={ removeAction }
+      value={ players.length || 0 }
+      limit={ limit } />
+  </div>)
+}
 
 class PlayerInputList extends Component {
   constructor (props) {
@@ -17,9 +73,9 @@ class PlayerInputList extends Component {
       parentHandler,
       teamId
     }
-
     this.addNewPlayer = this.addNewPlayer.bind(this)
     this.removePlayer = this.removePlayer.bind(this)
+    this.onChangePlayerName = this.onChangePlayerName.bind(this)
   }
 
   addNewPlayer() {
@@ -59,30 +115,38 @@ class PlayerInputList extends Component {
   render() {
     const { players } = this.state
     const limit = { min: 1, max: 4 }
-    return (
-      <div className="PlayerInputList">
-        <ul>
-          {
-              (players.length <= 0) ? (<li>No players</li>) :
-                (players.map((player, key) => <li key={ player.id }>
-                    <IconTextInputField
-                      placeholder={ `Name of Player ${ (key + 1) }` }
-                      value={ player.name }
-                      iconSrc={ gwUser }
-                      onChangeAction={
-                        this.onChangePlayerName.bind(this, player.id)
-                      }
-                      rel={ 'name' }  />
-                </li>))
-            }
-        </ul>
-        <IncroButton
-          addAction={ this.addNewPlayer }
-          removeAction={ this.removePlayer }
-          value={ players.length || 0 }
-          limit={ limit } />
-      </div>
-    )
+    return(<Query query={ PLAYERS_QUERY } fetchPolicy="network-only">
+                { ({ loading, error, data }) => {
+                if (loading) return (
+                    <div>
+                      <br />
+                      <ul>
+                          <li style={{ border: 'none', background: 'none', boxShadow: 'none' }}><div>Loading...</div></li>
+                      </ul>
+                      <br />
+                    </div>
+                )
+                if (error) return (
+                  <PlayerInputListView
+                    limit={ limit }
+                    players={ players }
+                    onChangeAction={ this.onChangePlayerName }
+                    addAction={ this.addNewPlayer }
+                    removeAction={ this.removePlayer } />
+                )
+                const playersDataList = data.players.map(player => player.name)
+                return (
+                  <PlayerInputListView
+                    limit={ limit }
+                    players={ players }
+                    playersDataList={ playersDataList }
+                    onChangeAction={ this.onChangePlayerName }
+                    addAction={ this.addNewPlayer }
+                    removeAction={ this.removePlayer } />
+                  )
+                }
+                }
+    </Query>)
   }
 }
 

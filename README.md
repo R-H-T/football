@@ -1,7 +1,7 @@
 # Table Football – React Web App
 A simplified score tracking React web app designed to run on Mobile, Desktop and TV, and projected on a building on fun events. 🏢✌️🔦
 
-This project is the front-end which is being persisted by the Table Football - [GraphQL API Server](0) project.
+This project is the front-end which is being persisted by the Table Football - [GraphQL API Server](https://github.com/R-H-T/tf-graphql) project.
 
 
 ![][image-1]
@@ -45,12 +45,10 @@ $ npm test
 ----
 
 ### More Details
-See the [CRA_README.md][2]-file for more details on the React bootstrap.
+See the [CRA_README.md](CRA_README.md)-file for more details on the React bootstrap.
 
 ----
 ### License
-Copyright ©2018 – Roberth Hansson-Tornéus – [R-H-T](1) (Gawee.Narak@gmail.com), all rights reserved.
+Copyright ©2018 – Roberth Hansson-Tornéus – [R-H-T](https://github.com/R-H-T) (Gawee.Narak@gmail.com), all rights reserved.
 
-[1]: https://github.com/R-H-T
-[2]: CRA_README.md
 [image-1]: r-h-t_tablefootball_md.png
